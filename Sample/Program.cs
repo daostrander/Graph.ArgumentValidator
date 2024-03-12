@@ -6,10 +6,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services
     .AddGraphQLServer()
     .AddArgumentValidator()
-    .AddQueryType<Query>();
+    .AddQueryType<Query>()
+    .AddType<VehicleQuery>();
 builder.Services
     .AddSingleton<DuplicateEmailValidatorService>();
-    
+
 var app = builder.Build();
 
 app.MapGraphQL();
